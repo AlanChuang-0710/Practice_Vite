@@ -34,3 +34,7 @@ npm run build --->生產環境，vite會全權交給一個叫做rollup的庫去�
 1. 不同的第三方包會有不同的導出格式(這個是vite無法約束人家的事情)
 2. 對路徑的處理上可以直接使用.vite/deps，方便路徑重寫
 3. 網路多包傳輸的性能問題 (也是原生esmodule規範不敢支持node_modules的原因之一)，有了依賴預構建以後，無論依賴包中有多少額外的export和import，vite會盡可能的將他們進行集成，最後只生成一個或幾個模塊。
+
+## Vite 缺點
+1.專案的開發流覽器要支援esmodule
+2.不能識別commonjs語法
