@@ -1,5 +1,6 @@
 # 你必須要理解的vite腳手架和vite
 vite官網搭建vite項目文檔教程: https://vitejs.dev/
+vite要求**node18**以上的版本才能運行!
 
 比如我們敲了```yarn create vite```
 1. 幫我們全局安裝一個東西: create-vite (vite的腳手架)
