@@ -40,7 +40,7 @@ const envResolver = {
 };
 
 export default defineConfig(({ command, mode }) => {
-    // command 默認可能為 "build" 或是 "serve" 依據vite --mode 參數而定
+    // mode 默認可能為 "build" 或是 "serve" 依據vite --mode 參數而定
     // console.log(mode);
 
     // 為甚麼不能直接透過process.env直接獲取檔案呢?
