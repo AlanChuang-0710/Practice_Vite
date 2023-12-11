@@ -1,0 +1,9 @@
+:root {
+  --globalColor: lightblue;
+}
+
+div {
+  /* postcss幫我們將變量降級為一般的lightblue */
+  background-color: lightblue; 
+  background-color: var(--globalColor);
+}
