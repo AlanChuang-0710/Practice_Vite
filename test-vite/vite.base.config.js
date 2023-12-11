@@ -1,4 +1,6 @@
 import { defineConfig } from "vite";
+const postcssPresetEnv = require("postcss-preset-env");
+
 export default defineConfig({
     optimizeDeps: {
         exclude: [], //將指定數組中的依賴不進行依賴預構建
@@ -33,6 +35,10 @@ export default defineConfig({
 
             }
         },
-        devSourcemap: true // 開啟css的sourcemap
+        devSourcemap: true, // 開啟css的sourcemap
+        // Vite的誕生，會讓postcss再火一次
+        postcss: {
+            plugins: [postcssPresetEnv()]
+        }
     }
 });
