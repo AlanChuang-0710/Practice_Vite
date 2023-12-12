@@ -1,7 +1,15 @@
 import { defineConfig } from "vite";
 const postcssPresetEnv = require("postcss-preset-env");
+const path = require("path");
 
 export default defineConfig({
+    resolve: {
+        // 別名
+        alias: {
+            "@": path.resolve(__dirname, "./src"),
+            "@assets": path.resolve(__dirname, "./src/assets")
+        }
+    },
     optimizeDeps: {
         exclude: [], //將指定數組中的依賴不進行依賴預構建
     },
@@ -38,7 +46,11 @@ export default defineConfig({
         devSourcemap: true, // 開啟css的sourcemap
         // Vite的誕生，會讓postcss再火一次
         postcss: {
-            plugins: [postcssPresetEnv()]
+            plugins: [
+                // 告訴postcss有些全局變量直接導入，並記錄下來
+                postcssPresetEnv({
+                    importFrom: path.resolve(__dirname, "./variable.css")
+                })]
         }
     }
 });

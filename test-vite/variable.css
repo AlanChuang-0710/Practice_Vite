@@ -1,0 +1,5 @@
+/* 我們使用的未來css特性，不需要經過less, sass的預處理器進行編譯 */
+/* 只需在vite.base.config中，告訴postcss此文件為全局的變量 */
+:root {
+  --globalColor: rgb(189, 92, 1);
+}

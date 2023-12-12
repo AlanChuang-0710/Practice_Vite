@@ -1,21 +1,9 @@
-import { count } from "./counter.js";
-console.log(count);
+import "./src/imageLoader";
+import jsonFile from "./src/assets/json/index.json";
+import { name } from "./src/assets/json/index.json";
 
-const env = import.meta.env;
-console.log(env);
-
-import indexLess from "./index.module.less";
-import "./static.less";
-console.log(indexLess); // 觀察vite處理css的默認值
-// {
-//     "header": "_header_1j3z8_1",
-//     "div-content": "_div-content_1j3z8_5"
-// }
-
-const divContainer = document.createElement("divContainer");
-divContainer.innerText = "我是header中的div";
-divContainer.className = indexLess["div-content"];
-const div = document.createElement("div");
-div.className = indexLess.header;
-div.appendChild(divContainer);
-document.body.appendChild(div);
+// Vite會將導入的json文件轉化為物件
+// 也支持按需加載，以利tree shaking搖樹優化: 打包工具會自動幫忙移除沒有用到的方法與變量。
+// 如果用的不是Vite，json文件的導入會作為一個json字符串形式存在。
+console.log("jsonFile", jsonFile);
+console.log("jsonFile", name);
