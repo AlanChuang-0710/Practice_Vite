@@ -1,4 +1,5 @@
 import "./src/imageLoader";
+import "./src/svgLoader";
 import jsonFile from "./src/assets/json/index.json";
 import { name } from "./src/assets/json/index.json";
 
