@@ -50,7 +50,7 @@ export default defineConfig(({ command, mode }) => {
     // 透過loadEnv載入環境變量檔，傳入三個參數(模式、env當前存在位置、.env的前綴)
     // 注意: 無論開發或生產，.env共用環境變量都會被加載進去
     const env = loadEnv(mode, process.cwd(), ""); // 此行代表會讀取 C:\Users\weiyu.chuang\Desktop\Vite\test-vite\.env 的檔案
-    // console.log("env/////", env);
+    console.log("env/////", env);
 
     return envResolver[command]();
 });

@@ -2,7 +2,8 @@ import { count } from "./counter.js";
 console.log(count);
 
 const env = import.meta.env;
-console.log(env);
+console.log("env", env);
+// console.log("process", process.env); // 被vite攔截，不會轉化，會報錯
 
 import indexLess from "./index.module.less";
 import "./static.less";

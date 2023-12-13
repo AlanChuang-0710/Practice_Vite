@@ -13,7 +13,9 @@ export default defineConfig({
     optimizeDeps: {
         exclude: [], //將指定數組中的依賴不進行依賴預構建
     },
-    envPrefix: "ENV_", // 配置vite注入用戶端環境變量較驗時的變量前綴
+    // envPrefix配置vite注入"瀏覽器端"環境變量較驗時的變量前綴
+    // 其他非以ENV_開頭的變量，不會透過import.meta.env傳入瀏覽器端
+    envPrefix: "ENV_",
     css: { //對css的行為進行配置，最終交由postcss modules運行
         modules: { // 是對css模塊化的默認行為進行配置
             // localsConvention: "camelCase", // 配置轉化後的命名規範
