@@ -8,7 +8,9 @@
 
 /* 加載svg方式2 */
 import svgIconRaw from "@assets/svg/cat.svg?raw";
-document.body.innerHTML = svgIconRaw;
+const div = document.createElement("div");
+div.innerHTML = svgIconRaw;
+document.body.append(div);
 const svgArr = document.querySelector("svg > g");
 svgArr.onmouseenter = function () {
     // 改svg顏色是要修改fill屬性

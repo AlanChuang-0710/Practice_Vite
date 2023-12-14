@@ -1,8 +1,15 @@
 import { defineConfig } from "vite";
 const postcssPresetEnv = require("postcss-preset-env");
+import { ViteAliases } from 'vite-aliases';
+// import { default as postcssPresetEnv } from "postcss-preset-env"; // type : module時使用
 const path = require("path");
 
 export default defineConfig({
+    // plugins: [
+    //     ViteAliases({
+    //         prefix: '@', // 默認情況下為@開頭，功能同reslve的alias
+    //     }),
+    // ],
     resolve: {
         // 別名
         alias: {
@@ -54,5 +61,17 @@ export default defineConfig({
                     importFrom: path.resolve(__dirname, "./variable.css")
                 })]
         }
-    }
+    },
+    build: { //構建生產包時的配置策略
+        outDir: "dist", // build出的文件位置，默認為dist
+        assetsDir: "static", // 靜態資源輸出位置，默認為assets
+        rollupOptions: { //配置rollup的構建策略
+            output: { //控制輸出
+                // 在rollup裡面，hash代表將文件名和文件內容進行組合計算得來的結果
+                assetFileNames: "[hash].[name].[ext]"
+            }
+        },
+        assetsInlineLimit: 4096, // 如果靜態資源小於4kb則轉換為base64字符，小于此阈值的导入或引用资源将内联为 base64 编码，以避免额外的 http 请求。设置为 0 可以完全禁用此项。
+        emptyOutDir: true, //清除目錄中的所有文件
+    },
 });

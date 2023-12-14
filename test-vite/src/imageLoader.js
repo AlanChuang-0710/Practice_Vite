@@ -5,6 +5,6 @@ import stylePicRaw from "@assets/images/border-collie.jpg?raw";
 
 const img = document.createElement("img");
 img.src = stylePicUrl;
-document.body.append(img);
+document.body.appendChild(img);
 
 console.log(stylePicRaw); // 二進制數據
