@@ -41,8 +41,8 @@ const envResolver = {
 
 export default defineConfig(({ command, mode }) => {
     // command 默認可能為 "build" 或是 "serve" 依據vite --mode 參數而定
-    console.log("mode", mode);
-    console.log("command", command);
+    // console.log("mode", mode);
+    // console.log("command", command);
 
     // 為甚麼不能直接透過process.env直接獲取檔案呢?
     // 因為上述中envResolver可能已經修改envDir將默認配置檔案名(.env)修改為其他名字
