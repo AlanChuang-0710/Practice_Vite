@@ -4,8 +4,9 @@ const postcssPresetEnv = require("postcss-preset-env");
 // import { default as postcssPresetEnv } from "postcss-preset-env"; // type : module時使用
 import terser from '@rollup/plugin-terser';
 // import { createHtmlPlugin } from "vite-plugin-html";
-const createHtmlPlugin = require("./plugins/CreateHtmlPlugin");
 const MyViteAliases = require("./plugins/ViteAliases");
+const createHtmlPlugin = require("./plugins/CreateHtmlPlugin");
+const VitePluginMock = require("./plugins/VitePluginMock");
 const path = require("path");
 
 export default defineConfig({
@@ -106,5 +107,6 @@ export default defineConfig({
         //  ViteAliases({
         //      prefix: '@', // 默認情況下為@開頭，功能同reslve的alias
         //  }),
+        VitePluginMock()
     ]
 });

@@ -11,3 +11,13 @@ console.log(name);
 // 如果用的不是Vite，json文件的導入會作為一個json字符串形式存在。
 // console.log("jsonFile ", jsonFile);
 // console.log("jsonFile ", name);
+
+fetch("/api/users", {
+    method: "post"
+}).then((res) => {
+    return res.json();
+}).then((data) => {
+    console.log(data);
+}).catch((err) => {
+    console.log(err);
+});
