@@ -15,11 +15,13 @@ module.exports = (options) => {
                     let responseData = "";
                     if (mockStat.isDirectory()) {
                         let mockResult = require(path.resolve(process.cwd(), "mock/index.js"));
-                        console.log("mockResult", mockResult);
-                        responseData = mockResult.find((item) => item.url === req.url);
+                        if (mockResult) {
+                            responseData = mockResult.find((item) => item.url === req.url);
+                            responseData = responseData.response(req);
+                        }
                     }
                     res.setHeader("Content-type", "application/json");
-                    return res.end(JSON.stringify(responseData.response)); //自動設置請求頭
+                    return res.end(JSON.stringify(responseData)); //自動設置請求頭
                 }
                 next();
             });

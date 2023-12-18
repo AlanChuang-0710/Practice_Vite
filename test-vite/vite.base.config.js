@@ -5,7 +5,7 @@ const postcssPresetEnv = require("postcss-preset-env");
 import terser from '@rollup/plugin-terser';
 // import { createHtmlPlugin } from "vite-plugin-html";
 const MyViteAliases = require("./plugins/ViteAliases");
-import { viteMockServe } from "vite-plugin-mock";
+// import { viteMockServe } from "vite-plugin-mock";
 
 const createHtmlPlugin = require("./plugins/CreateHtmlPlugin");
 const VitePluginMock = require("./plugins/VitePluginMock");
@@ -99,12 +99,12 @@ export default defineConfig({
                 }
             }
         }),
-        viteMockServe({
-            mockPath: './mock', // mock文件所在文件夹
-            watchFiles: false, // 監視文件修改，修改mock.js後，不需要重啟服務器
-            // 有坑，搭配vite會死循環不斷生成文件，故關閉watch選項
-            // 跳坑文章: https://github.com/vbenjs/vite-plugin-mock/issues/98
-        })
+        // viteMockServe({
+        //     mockPath: './mock', // mock文件所在文件夹
+        //     watchFiles: false, // 監視文件修改，修改mock.js後，不需要重啟服務器
+        //     // 有坑，搭配vite會死循環不斷生成文件，故關閉watch選項
+        //     // 跳坑文章: https://github.com/vbenjs/vite-plugin-mock/issues/98
+        // }),
         // createHtmlPlugin({
         //     inject: {
         //         data: {

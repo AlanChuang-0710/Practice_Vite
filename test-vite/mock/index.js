@@ -1,6 +1,6 @@
 const mockjs = require("mockjs");
 
-const data = mockjs.mock({
+const userList = mockjs.mock({
     "data|100": [
         {
             name: "@cname", //表示生成不同的中文名
@@ -23,7 +23,7 @@ module.exports = [
             return {
                 code: 200,
                 msg: "success",
-                data: data
+                data: userList
             };
         }
     }
