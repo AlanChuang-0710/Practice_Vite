@@ -33,7 +33,7 @@ export default defineConfig({
             // Vite 插件也可以提供钩子来服务于特定的 Vite 目标。这些钩子会被 Rollup 忽略。
             // Vite plugins can also provide hooks that serve Vite-specific purposes. These hooks are ignored by Rollup.
             config(options) {
-                // console.log("config options 執行", options);
+                console.log("config options 執行", options);
                 return {
                     build: {
                         outDir: "dist"
@@ -59,7 +59,6 @@ export default defineConfig({
             },
 
             /* Universial Hooks */
-            // 通用hook會被vite和rollup都執行一次
             options(rollupOptions) {
                 // console.log("rollupOptions-------", rollupOptions);
             },
