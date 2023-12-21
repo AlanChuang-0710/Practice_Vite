@@ -66,10 +66,14 @@ export default defineConfig({
     },
     build: { //構建生產包時的配置策略
         outDir: "dist", // build出的文件位置，默認為dist
-        assetsDir: "static", // 靜態資源輸出位置，默認為assets
-        minify: "terser", // 程式碼壓縮
+        emptyOutDir: true, //清除已打包好的dist目錄中的所有文件
+        assetsDir: "assets", // 靜態資源輸出位置，默認為assets
+        minify: false, // 程式碼壓縮 boolean | 'terser' | 'esbuild'
         rollupOptions: { //配置rollup的構建策略
             // 配置rollup的插件
+            input: {
+                main: path.resolve(__dirname, "./index.html")
+            },
             plugins: [
                 // 配置terser 針對是否移除comment的配置
                 terser({
@@ -84,11 +88,16 @@ export default defineConfig({
             ],
             output: { //控制輸出
                 // 在rollup裡面，hash代表將文件名和文件內容進行組合計算得來的結果
-                assetFileNames: "[hash].[name].[ext]"
+                assetFileNames: "[hash].[name].[ext]",
+                manualChunks: (id) => {
+                    console.log("id", id); // 輸出 C:/Users/weiyu.chuang/Desktop/Vite/test-vite/node_modules/lodash/lodash.js
+                    if (id.includes("node_modules")) {
+                        return "vendor"; // 這是常規命名，有return 
+                    }
+                }
             },
         },
         assetsInlineLimit: 4096, // 如果靜態資源小於4kb則轉換為base64字符，小于此阈值的导入或引用资源将内联为 base64 编码，以避免额外的 http 请求。设置为 0 可以完全禁用此项。
-        emptyOutDir: true, //清除已打包好的dist目錄中的所有文件
     },
     plugins: [
         MyViteAliases("@"),
