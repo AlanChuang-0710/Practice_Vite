@@ -1,5 +1,11 @@
+// import "./src/imageLoader";
+
+// es6新語法動態加載
+import("./src/svgLoader").then((data) => {
+    console.log(data);
+});
+
 import "./src/imageLoader";
-import "./src/svgLoader";
 import { forEach } from "lodash";
 import jsonFile from "./src/assets/json/index.json";
 import { name } from "./src/assets/json/index.json";
@@ -8,9 +14,9 @@ import { name } from "./src/assets/json/index.json";
 // console.log(name);
 
 /* 單純 */
-forEach([1, 2, 3, 4, 5],(item) => {
-    item++
-})
+forEach([1, 2, 3, 4, 5], (item) => {
+    item++;
+});
 
 
 // Vite會將導入的json文件轉化為物件

@@ -6,6 +6,7 @@ import terser from '@rollup/plugin-terser';
 // import { createHtmlPlugin } from "vite-plugin-html";
 const MyViteAliases = require("./plugins/ViteAliases");
 // import { viteMockServe } from "vite-plugin-mock";
+import viteCompression from 'vite-plugin-compression';
 
 const createHtmlPlugin = require("./plugins/CreateHtmlPlugin");
 const VitePluginMock = require("./plugins/VitePluginMock");
@@ -124,6 +125,7 @@ export default defineConfig({
         //  ViteAliases({
         //      prefix: '@', // 默認情況下為@開頭，功能同reslve的alias
         //  }),
-        VitePluginMock()
+        VitePluginMock(),
+        viteCompression()
     ]
 });
